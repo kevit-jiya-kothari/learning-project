@@ -27,7 +27,7 @@ Users can belong to multiple workspaces and switch between their available works
 
 ## Tech Stack
 
-- Frontend: React / Next.js
+- Frontend: Angular.js
 - Backend: Node.js / Express.js
 - Database: MongoDB
 - Authentication: JWT
