@@ -42,3 +42,7 @@ OutreachHub/
 ├── backend/
 ├── README.md
 └── .gitignore
+
+## Status
+
+Project development is in progress.
