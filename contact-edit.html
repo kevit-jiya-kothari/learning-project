@@ -1,0 +1,334 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Contact - Outreach Hub</title>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            Outreach Hub
+        </div>
+
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="contacts.html">Contacts</a>
+            <a href="#">Templates</a>
+            <a href="#">Campaigns</a>
+            <a href="index.html>">Logout</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Edit Contact</h1>
+
+        <div class="form-card">
+            <form action="contact-details.html">
+                <label for="name">Name</label>
+                <input type="text" id="name" value="Sakshi Patel" required>
+
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" value="876543210" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" value="sakshi.patel@example.com" required>
+
+                <label for="tags">Tags</label>
+                <input type="text" id="tags" value="Customer, Premium">
+
+                <div class="actions">
+                    <button type="submit">
+                        Save Contact
+                    </button>
+                    <a href="contacts.html" class="button secondary">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Edit Contact - OutreachHub</title>
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+
+    <header>
+
+        <h1>OutreachHub</h1>
+
+        <nav>
+
+            <a href="home.html">Home</a> |
+            <a href="contacts.html">Contacts</a> |
+            <a href="#">Templates</a> |
+            <a href="#">Campaigns</a> |
+            <a href="index.html">Logout</a>
+
+        </nav>
+
+    </header>
+
+    <hr>
+
+
+    <main>
+
+        <h1>Edit Contact</h1>
+
+        <p>
+            Update the contact information below.
+        </p>
+
+
+        <form action="contact-details.html" method="get">
+
+
+            <!-- Personal Information -->
+
+            <fieldset>
+
+                <legend>
+                    Personal Information
+                </legend>
+
+
+                <p>
+
+                    <label for="name">
+                        Full Name:
+                    </label>
+
+                    <br>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value="Rahul Patel"
+                        required
+                    >
+
+                </p>
+
+
+                <p>
+
+                    <label for="phone">
+                        Phone Number:
+                    </label>
+
+                    <br>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value="9876543210"
+                        required
+                    >
+
+                </p>
+
+
+                <p>
+
+                    <label for="email">
+                        Email Address:
+                    </label>
+
+                    <br>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value="rahul@example.com"
+                    >
+
+                </p>
+
+            </fieldset>
+
+
+            <br>
+
+
+            <!-- Company Information -->
+
+            <fieldset>
+
+                <legend>
+                    Company Information
+                </legend>
+
+
+                <p>
+
+                    <label for="company">
+                        Company Name:
+                    </label>
+
+                    <br>
+
+                    <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        value="ABC Technologies"
+                    >
+
+                </p>
+
+
+                <p>
+
+                    <label for="designation">
+                        Designation:
+                    </label>
+
+                    <br>
+
+                    <input
+                        type="text"
+                        id="designation"
+                        name="designation"
+                        value="Software Engineer"
+                    >
+
+                </p>
+
+            </fieldset>
+
+
+            <br>
+
+
+            <!-- Classification -->
+
+            <fieldset>
+
+                <legend>
+                    Contact Classification
+                </legend>
+
+
+                <p>
+
+                    <label for="tags">
+                        Tags:
+                    </label>
+
+                    <br>
+
+                    <input
+                        type="text"
+                        id="tags"
+                        name="tags"
+                        value="Customer, Premium"
+                    >
+
+                </p>
+
+
+                <p>
+
+                    <label for="status">
+                        Status:
+                    </label>
+
+                    <br>
+
+                    <select
+                        id="status"
+                        name="status"
+                    >
+
+                        <option value="active" selected>
+                            Active
+                        </option>
+
+                        <option value="inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </p>
+
+            </fieldset>
+
+
+            <br>
+
+
+            <!-- Notes -->
+
+            <fieldset>
+
+                <legend>
+                    Additional Information
+                </legend>
+
+
+                <p>
+
+                    <label for="notes">
+                        Notes:
+                    </label>
+
+                    <br>
+
+                    <textarea
+                        id="notes"
+                        name="notes"
+                        rows="6"
+                        cols="50"
+                    >Premium customer. Contact regarding upcoming campaigns.</textarea>
+
+                </p>
+
+            </fieldset>
+
+
+            <br>
+
+
+            <!-- Buttons -->
+
+            <button type="submit">
+                Update Contact
+            </button>
+
+            <a href="contacts.html">
+                Cancel
+            </a>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

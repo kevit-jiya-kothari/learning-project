@@ -1,0 +1,344 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Contact - Outreach Hub</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            Outreach Hub
+        </div>
+
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="contacts.html">Contacts</a>
+            <a href="#">Templates</a>
+            <a href="#">Campaigns</a>
+            <a href="index.html>">Logout</a>
+        </div>
+
+    </nav>
+
+    <main class="container">
+        <h1>Create Contact</h1>
+
+        <div class="form-card">
+ 
+            <form action="contact-details.html">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter contact name" required>
+
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" placeholder="Enter contact phone number" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter contact email address" required>
+
+                <label for="tags">Tags</label>
+                <input type="text" id="tags" placeholder="Customer, Premium">
+
+                <div class="actions">
+
+                    <button type="submit">
+                        Save Contact
+                    </button>
+
+                    <a href="contacts.html" class="button secondary">
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Add Contact - OutreachHub</title>
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+
+    <header>
+
+        <h1>OutreachHub</h1>
+
+        <nav>
+
+            <a href="home.html">Home</a> |
+            <a href="contacts.html">Contacts</a> |
+            <a href="#">Templates</a> |
+            <a href="#">Campaigns</a> |
+            <a href="index.html">Logout</a>
+
+        </nav>
+
+    </header>
+
+    <hr>
+
+
+    <main>
+
+        <h1>Add New Contact</h1>
+
+        <p>
+            Enter the details of the new contact.
+        </p>
+
+
+        <form action="contact-details.html" method="get">
+
+
+            <!-- Personal Information -->
+
+            <fieldset>
+
+                <legend>
+                    Personal Information
+                </legend>
+
+
+                <p>
+
+                    <label for="name">
+                        Full Name:
+                    </label>
+
+                    <br>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter full name"
+                        required
+                    >
+
+                </p>
+
+
+                <p>
+
+                    <label for="phone">
+                        Phone Number:
+                    </label>
+
+                    <br>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter phone number"
+                        required
+                    >
+
+                </p>
+
+
+                <p>
+
+                    <label for="email">
+                        Email Address:
+                    </label>
+
+                    <br>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email address"
+                    >
+
+                </p>
+
+            </fieldset>
+
+
+            <br>
+
+
+            <!-- Company Information -->
+
+            <fieldset>
+
+                <legend>
+                    Company Information
+                </legend>
+
+
+                <p>
+
+                    <label for="company">
+                        Company Name:
+                    </label>
+
+                    <br>
+
+                    <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        placeholder="Enter company name"
+                    >
+
+                </p>
+
+
+                <p>
+
+                    <label for="designation">
+                        Designation:
+                    </label>
+
+                    <br>
+
+                    <input
+                        type="text"
+                        id="designation"
+                        name="designation"
+                        placeholder="Enter designation"
+                    >
+
+                </p>
+
+            </fieldset>
+
+
+            <br>
+
+
+            <!-- Contact Classification -->
+
+            <fieldset>
+
+                <legend>
+                    Contact Classification
+                </legend>
+
+
+                <p>
+
+                    <label for="tags">
+                        Tags:
+                    </label>
+
+                    <br>
+
+                    <input
+                        type="text"
+                        id="tags"
+                        name="tags"
+                        placeholder="Customer, Premium, VIP"
+                    >
+
+                </p>
+
+                <p>
+                    You can enter multiple tags separated by commas.
+                </p>
+
+
+                <p>
+
+                    <label for="status">
+                        Status:
+                    </label>
+
+                    <br>
+
+                    <select
+                        id="status"
+                        name="status"
+                    >
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </p>
+
+            </fieldset>
+
+
+            <br>
+
+
+            <!-- Additional Information -->
+
+            <fieldset>
+
+                <legend>
+                    Additional Information
+                </legend>
+
+
+                <p>
+
+                    <label for="notes">
+                        Notes:
+                    </label>
+
+                    <br>
+
+                    <textarea
+                        id="notes"
+                        name="notes"
+                        rows="6"
+                        cols="50"
+                        placeholder="Enter additional notes"
+                    ></textarea>
+
+                </p>
+
+            </fieldset>
+
+
+            <br>
+
+
+            <!-- Buttons -->
+
+            <button type="submit">
+                Save Contact
+            </button>
+
+            <a href="contacts.html">
+                Cancel
+            </a>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>
