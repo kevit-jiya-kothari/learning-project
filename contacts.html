@@ -1,14 +1,17 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacts - Outreach Hub</title>
+    <title>Contacts - OutreachHub</title>
+    <link rel="stylesheet" href="./scss/main.css">
 </head>
 <body>
-    <nav>
+
+    <!-- Navigation Menu -->
+   <nav>
         <div class="logo">
-            Outreach Hub
+            <h1>OutreachHub</h1>
         </div>
 
         <div class="nav-links">
@@ -16,316 +19,90 @@
             <a href="contacts.html">Contacts</a>
             <a href="#">Templates</a>
             <a href="#">Campaigns</a>
-            <a href="index.html>">Logout</a>
+            <a href="index.html">Logout</a>
         </div>
 
     </nav>
 
-    <main class="container">
-        <div class="page-header">
-            <div>
-                <h1>Contacts</h1>
-                <p>Manage your workspace contacts.</p>
-            </div>
-
-            <a href="contact-create.html" class="button">
-                + Add Contact
-            </a>
-
-        </div>
-
-        <div class="table-card">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Company</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>Sakshi Patel</td>
-                        <td>876543210</td>
-                        <td>sakshi.patel@example.com</td>
-                        <td>Customer</td>
-
-                        <td>
-                            <a href="contact-details.html">
-                                View
-                            </a>
-
-                            <a href="contact-edit.html">
-                                Edit
-                            </a>
-
-                            <a href="contacts.html">
-                                Delete
-                            </a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Vishwa Shah</td>
-                        <td>7986543210</td>
-                        <td>vishwa.shah@example.com</td>
-                        <td>Lead</td>
-
-                        <td>
-                            <a href="contact-details.html">
-                                View
-                            </a>
-
-                            <a href="contact-edit.html">
-                                Edit
-                            </a>
-
-                            <a href="contacts.html">
-                                Delete
-                            </a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Rahul Mehta</td>
-                        <td>876543210</td>
-                        <td>rahul.mehta@example.com</td>
-                        <td>Premium</td>
-
-                        <td>
-                            <a href="contact-details.html">
-                                View
-                            </a>
-
-                            <a href="contact-edit.html">
-                                Edit
-                            </a>
-
-                            <a href="contacts.html">
-                                Delete
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="pagination">
-
-                <a href="#">Previous</a>
-
-                <a href="#">1</a>
-
-                <a href="#">2</a>
-
-                <a href="#">3</a>
-
-                <a href="#">Next</a>
-
-            </div>
-
-        </div>
-    </main>
-    
-</body>
-</html> -->
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Contacts - OutreachHub</title>
-</head>
-
-<body>
-
-    <!-- Navigation Menu -->
-
-    <header>
-
-        <h1>OutreachHub</h1>
-
-        <nav>
-
-            <a href="home.html">Home</a> |
-            <a href="contacts.html">Contacts</a> |
-            <a href="#">Templates</a> |
-            <a href="#">Campaigns</a> |
-            <a href="index.html">Logout</a>
-
-        </nav>
-
-    </header>
-
-    <hr>
-
-
     <!-- Page Heading -->
-
     <main>
 
         <h1>Contacts</h1>
-
         <p>Manage all contacts in your workspace.</p>
-
         <p>
             <a href="contact-create.html">➕ Add New Contact</a>
         </p>
-
-        <hr>
-
-
         <!-- Search and Filter -->
-
         <section>
 
             <h2>Search & Filter Contacts</h2>
-
             <form action="contacts.html">
-
                 <fieldset>
-
                     <legend>Search Contacts</legend>
-
                     <p>
-
                         <label for="search">
                             Search by Name / Phone / Email:
                         </label>
-
                         <br>
-
-                        <input
-                            type="search"
-                            id="search"
-                            name="search"
-                            placeholder="Enter search text"
-                        >
-
+                        <input type="search" id="search" name="search" placeholder="Enter search text">
                     </p>
-
+                    <br>
 
                     <p>
-
-                        <label for="tag">
-                            Filter by Tag:
-                        </label>
-
+                        <label for="tag">Filter by Tag:</label>
                         <br>
-
                         <select id="tag" name="tag">
 
-                            <option value="">
-                                All Tags
-                            </option>
-
-                            <option value="customer">
-                                Customer
-                            </option>
-
-                            <option value="lead">
-                                Lead
-                            </option>
-
-                            <option value="premium">
-                                Premium
-                            </option>
-
-                            <option value="vip">
-                                VIP
-                            </option>
+                            <option value="">All Tags</option>
+                            <option value="customer">Customer</option>
+                            <option value="lead">Lead</option>
+                            <option value="premium">Premium</option>
+                            <option value="vip">VIP</option>
 
                         </select>
-
                     </p>
-
+                    <br>
 
                     <p>
-
-                        <label for="status">
-                            Filter by Status:
-                        </label>
-
+                        <label for="status">Filter by Status:</label>
                         <br>
-
                         <select id="status" name="status">
 
-                            <option value="">
-                                All Status
-                            </option>
-
-                            <option value="active">
-                                Active
-                            </option>
-
-                            <option value="inactive">
-                                Inactive
-                            </option>
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
 
                         </select>
-
                     </p>
-
+                    <br>
 
                     <p>
-
-                        <label for="sort">
-                            Sort By:
-                        </label>
-
+                        <label for="sort">Sort By:</label>
                         <br>
-
                         <select id="sort" name="sort">
 
-                            <option value="name">
-                                Name
-                            </option>
-
-                            <option value="recent">
-                                Recently Added
-                            </option>
-
-                            <option value="phone">
-                                Phone Number
-                            </option>
+                            <option value="name">Name</option>
+                            <option value="recent">Recently Added</option>
+                            <option value="phone">Phone Number</option>
 
                         </select>
 
                     </p>
+                    <br>
 
-
-                    <button type="submit">
-                        Search
-                    </button>
-
-                    <button type="reset">
-                        Clear Filters
-                    </button>
+                    <button type="submit">Search</button>
+                    <button type="reset">Clear Filters</button>
 
                 </fieldset>
 
             </form>
 
         </section>
-
-        <br>
-
-
         <!-- Contact List -->
-
         <section>
 
             <h2>Contact List</h2>
-
-            <p>
-                Total Contacts: 5
-            </p>
-
+            <p>Total Contacts: 5</p>
 
             <table border="1" cellpadding="10" cellspacing="0">
 
@@ -346,220 +123,125 @@
 
                 </thead>
 
-
                 <tbody>
 
                     <tr>
 
                         <td>1</td>
-
                         <td>Rahul Patel</td>
-
                         <td>9876543210</td>
-
                         <td>rahul@example.com</td>
-
                         <td>ABC Technologies</td>
-
+                        <td>Customer,Premium</td>
+                        <td>Active</td>
                         <td>
-                            Customer,
-                            Premium
-                        </td>
-
-                        <td>
-                            Active
-                        </td>
-
-                        <td>
-
-                            <a href="contact-details.html">
-                                View
-                            </a>
+                            <a href="contact-details.html">View</a>
 
                             |
 
-                            <a href="contact-edit.html">
-                                Edit
-                            </a>
+                            <a href="contact-edit.html">Edit</a>
 
                             |
 
-                            <a href="contacts.html">
-                                Delete
-                            </a>
-
+                            <a href="contact-delete.html">Delete</a>
                         </td>
 
                     </tr>
-
 
                     <tr>
 
                         <td>2</td>
-
                         <td>Priya Shah</td>
-
                         <td>9876543211</td>
-
                         <td>priya@example.com</td>
-
                         <td>XYZ Solutions</td>
-
+                        <td>Lead</td>
+                        <td>Active</td>
                         <td>
-                            Lead
-                        </td>
-
-                        <td>
-                            Active
-                        </td>
-
-                        <td>
-
-                            <a href="contact-details.html">
-                                View
-                            </a>
+                            <a href="contact-details.html">View</a>
 
                             |
 
-                            <a href="contact-edit.html">
-                                Edit
-                            </a>
+                            <a href="contact-edit.html">Edit</a>
 
                             |
 
-                            <a href="contacts.html">
-                                Delete
-                            </a>
+                            <a href="contacts.html">Delete</a>
 
                         </td>
 
                     </tr>
-
 
                     <tr>
 
                         <td>3</td>
-
                         <td>Amit Mehta</td>
-
                         <td>9876543212</td>
-
                         <td>amit@example.com</td>
-
                         <td>Mehta Enterprises</td>
-
-                        <td>
-                            Customer,
-                            VIP
-                        </td>
-
-                        <td>
-                            Active
-                        </td>
-
+                        <td>Customer,VIP</td>
+                        <td>Active</td>
                         <td>
 
-                            <a href="contact-details.html">
-                                View
-                            </a>
+                            <a href="contact-details.html">View</a>
 
                             |
 
-                            <a href="contact-edit.html">
-                                Edit
-                            </a>
+                            <a href="contact-edit.html">Edit</a>
 
                             |
 
-                            <a href="contacts.html">
-                                Delete
-                            </a>
+                            <a href="contacts.html">Delete</a>
 
                         </td>
 
                     </tr>
-
 
                     <tr>
 
                         <td>4</td>
-
                         <td>Neha Patel</td>
-
                         <td>9876543213</td>
-
                         <td>neha@example.com</td>
-
                         <td>Patel Industries</td>
-
-                        <td>
-                            Lead
-                        </td>
-
-                        <td>
-                            Inactive
-                        </td>
-
+                        <td>Lead</td>
+                        <td>Inactive</td>
                         <td>
 
-                            <a href="contact-details.html">
-                                View
-                            </a>
+                            <a href="contact-details.html">View</a>
 
                             |
 
-                            <a href="contact-edit.html">
-                                Edit
-                            </a>
+                            <a href="contact-edit.html">Edit </a>
 
                             |
 
-                            <a href="contacts.html">
-                                Delete
-                            </a>
+                            <a href="contacts.html">Delete</a>
 
                         </td>
 
                     </tr>
 
-
                     <tr>
 
                         <td>5</td>
-
                         <td>Karan Shah</td>
-
                         <td>9876543214</td>
-
                         <td>karan@example.com</td>
-
                         <td>Shah Industries</td>
-
-                        <td>
-                            Customer
-                        </td>
-
-                        <td>
-                            Active
-                        </td>
-
+                        <td>Customer</td>
+                        <td>Active</td>
                         <td>
 
-                            <a href="contact-details.html">
-                                View
-                            </a>
+                            <a href="contact-details.html">View</a>
 
                             |
 
-                            <a href="contact-edit.html">
-                                Edit
-                            </a>
+                            <a href="contact-edit.html">Edit</a>
 
                             |
 
-                            <a href="contact-delete.html">
-                                Delete
-                            </a>
+                            <a href="contact-delete.html">Delete</a>
 
                         </td>
 
@@ -570,57 +252,39 @@
             </table>
 
         </section>
-
-        <br>
-
-
         <!-- Pagination -->
 
         <section>
 
             <!-- <h3>Pagination</h3> -->
 
-            <a href="#">
-                Previous
-            </a>
+            <a href="#">Previous</a>
 
             &nbsp;
 
-            <a href="#">
-                1
-            </a>
+            <a href="#">1</a>
 
             &nbsp;
 
-            <a href="#">
-                2
-            </a>
+            <a href="#">2</a>
 
             &nbsp;
 
-            <a href="#">
-                3
-            </a>
+            <a href="#">3</a>
 
             &nbsp;
 
-            <a href="#">
-                Next
-            </a>
+            <a href="#">Next</a>
 
         </section>
 
     </main>
 
-
     <footer>
 
-        <p>
-            © 2026 OutreachHub
-        </p>
+        <p>© 2026 OutreachHub</p>
 
     </footer> 
 
 </body>
-
 </html>

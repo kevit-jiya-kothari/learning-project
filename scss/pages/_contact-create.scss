@@ -1,0 +1,220 @@
+@use "../abstracts/variables" as *;
+
+body.contact-create-page {
+
+/* Basic Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Body */
+
+& {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    background-color: #eef2ff;
+}
+
+
+/* Navigation */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #5b5bd6;
+    border-bottom: 2px solid #4a4ac1;
+}
+
+
+/* Logo */
+
+.logo h1 {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+
+/* Navigation Links */
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* Main Container */
+
+main {
+    width: 95%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+
+/* Page Heading */
+
+main > h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+main > p {
+    color: #666666;
+    margin-bottom: 25px;
+}
+
+
+/* Form */
+
+form {
+    background-color: #ffffff;
+    padding: 25px;
+    border: 1px solid #dfe3f0;
+    border-radius: 8px;
+}
+
+
+/* Fieldsets */
+
+fieldset {
+    background-color: #ffffff;
+    border: 1px solid #dfe3f0;
+    border-radius: 6px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+
+/* Legends */
+
+legend {
+    padding: 0 10px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* Field Paragraphs */
+
+fieldset p {
+    margin-bottom: 20px;
+}
+
+
+/* Labels */
+
+label {
+    display: inline-block;
+    margin-bottom: 7px;
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* Inputs and Select */
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background-color: #ffffff;
+}
+
+
+/* Textarea */
+
+textarea {
+    resize: vertical;
+}
+
+
+/* Input Focus */
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #5b5bd6;
+}
+
+
+/* Help Text */
+
+fieldset p {
+    color: #555555;
+}
+
+
+/* Buttons */
+
+button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5b5bd6;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4949b8;
+}
+
+
+/* Cancel Link */
+
+form > a {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 9px 17px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    color: #555555;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+form > a:hover {
+    background-color: #f4f5ff;
+    color: #5b5bd6;
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777777;
+    font-size: 13px;
+}
+
+}

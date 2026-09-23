@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="./scss/main.css">
 </head>
 <body>
     <nav>
@@ -16,38 +17,44 @@
             <a href="contacts.html">Contacts</a>
             <a href="#">Templates</a>
             <a href="#">Campaigns</a>
-            <a href="index.html>">Logout</a>
+            <a href="index.html">Logout</a>
         </div>
-
     </nav>
 
     <main class="container">
         <section class="welcome">
-            <h1>Welcome to Outreach Hub</h1>
-            <p>Manage your contacts, templates, and campaigns from one place.</p>
+            <div class="welcome-text">
+                <h1>Welcome to Outreach Hub</h1>
+                <p>Manage your contacts, templates, and campaigns from one place.</p>
+            </div>
+
+            <div class="welcome-image"> 
+                <img src="./images/welcome.png" alt="OutreachHub branding illustration" > 
+            </div>
+
         </section>
 
         <section>
-            <h2>Workspace Analytics</h2>
+            <h2>Workspace Analytics</h2><br>
             <div class="analytics-grid">
                 <div class="charts-card">
                     <h3>Campaigns Per Day</h3>
                     <div class="chart-placeholder">
-                        Analytics Chart
+                        <img src="./images/campaigns-chart.png" alt="Campaigns chart illustration">
                     </div>
                 </div>
 
                 <div class="charts-card">
                     <h3>Messages Sent Per Day</h3>
                     <div class="chart-placeholder">
-                        Analytics Chart
+                        <img src="./images/messages-chart.png" alt="Messages chart illustration">
                     </div>
                 </div>
 
                 <div class="charts-card">
                     <h3>Contacts Reached Per Day</h3>
                     <div class="chart-placeholder">
-                        Analytics Chart
+                        <img src="./images/contacts-chart.png" alt="Contacts chart illustration">
                     </div>
                 </div>
             </div>
@@ -113,45 +120,28 @@
                     <tbody>
 
                         <tr>
-
                             <td>Customers</td>
-
                             <td>120</td>
-
                         </tr>
 
-                    
                         <tr>
-
                             <td>Leads</td>
-
                             <td>95</td>
-
                         </tr>
-
     
                         <tr>
-
                             <td>Premium</td>
-
                             <td>75</td>
-
                         </tr>
             
                         <tr>
-
                             <td>New users</td>
-
                             <td>60</td>
-
                         </tr>
 
                         <tr>
-
                             <td>Inactive</td>
-
                             <td>35</td>
-
                         </tr>
 
                     </tbody>
@@ -166,11 +156,9 @@
     
     <footer>
 
-            <p>
-                © 2026 OutreachHub
-            </p>
+        <p>© 2026 OutreachHub</p>
 
-        </footer>    
+    </footer>    
     
 </body>
 </html>

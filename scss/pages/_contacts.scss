@@ -1,0 +1,242 @@
+@use "../abstracts/variables" as *;
+
+/* Basic Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Body */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    background-color: #eef2ff;
+}
+
+
+/* Header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #5b5bd6;
+    color: #ffffff;
+}
+
+
+/* Logo */
+
+header h1 {
+    font-size: 24px;
+}
+
+
+/* Navigation */
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* Main Container */
+
+main {
+    width: calc(100% - 60px);
+    max-width: 1600px;
+    margin: 30px auto;
+}
+
+
+/* Page Heading */
+
+main > h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+main > p {
+    margin-bottom: 15px;
+    color: #333333;
+}
+
+
+/* Add Contact Link */
+
+main > p a {
+    color: #5b5bd6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main > p a:hover {
+    text-decoration: underline;
+}
+
+
+/* Sections */
+
+section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #dfe3f0;
+    border-radius: 8px;
+}
+
+
+/* Section Headings */
+
+section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+
+/* Search Form */
+
+fieldset {
+    border: 1px solid #dfe3f0;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+legend {
+    padding: 0 8px;
+    font-weight: bold;
+}
+
+
+/* Form Labels */
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* Input and Select */
+
+input[type="search"],
+select {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+fieldset p {
+    max-width: 420px;
+}
+
+
+/* Buttons */
+
+button {
+    padding: 10px 16px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5b5bd6;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4949b8;
+}
+
+
+/* Contact Table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: #ffffff;
+}
+
+
+/* Table Header */
+
+th {
+    background-color: #f4f5ff;
+    color: #333333;
+    font-weight: bold;
+}
+
+
+/* Table Cells */
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dddddd;
+    font-size: 14px;
+}
+
+
+/* Table Links */
+
+td a {
+    color: #5b5bd6;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+
+/* Pagination */
+
+section:last-of-type {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+section:last-of-type a {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #ffffff;
+    color: #5b5bd6;
+    text-decoration: none;
+    border: 1px solid #dfe3f0;
+    border-radius: 4px;
+}
+
+section:last-of-type a:hover {
+    background-color: #5b5bd6;
+    color: #ffffff;
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777777;
+    font-size: 13px;
+}

@@ -1,0 +1,33 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.form-group {
+    margin-bottom: $spacing-large;
+
+    label {
+        display: block;
+        margin-bottom: $spacing-small;
+        font-size: 14px;
+        font-weight: 600;
+        color: $text-color;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid $border-color;
+        border-radius: $radius-small;
+        background-color: $white;
+        color: $text-color;
+        font-size: 14px;
+        transition: 0.2s ease;
+
+        &::placeholder {
+            color: #a0a3ad;
+        }
+
+        &:focus {
+            @include input-focus;
+        }
+    }
+}

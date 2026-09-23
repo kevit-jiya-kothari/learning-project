@@ -1,0 +1,217 @@
+@use "../abstracts/variables" as *;
+
+body.login-page-body {
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+
+& {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+  background-color: #eef2ff;
+}
+
+/* Links */
+
+a {
+  color: #5b5bd6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Login Page */
+
+.login-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Main Container */
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Brand */
+
+.brand {
+  text-align: center;
+  margin-bottom: 20px;
+  display: block;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+}
+
+.brand h1 {
+  color: #5b5bd6;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.brand p {
+  color: #666666;
+  font-size: 14px;
+}
+
+/* Login Card */
+
+.login-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border: 1px solid #dfe3f0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Login Header */
+
+.login-header {
+  margin-bottom: 25px;
+}
+
+.login-header h2 {
+  font-size: 22px;
+  margin-bottom: 7px;
+}
+
+.login-header p {
+  color: #666666;
+  font-size: 14px;
+}
+
+/* Form */
+
+.login-form p {
+  margin-bottom: 18px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Email and Password Inputs */
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Password Label */
+
+.password-label {
+  margin-bottom: 6px;
+}
+
+.password-label label {
+  margin-bottom: 0;
+}
+
+/* Remember Me + Forgot Password */
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Remember Me */
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.remember-me input {
+  cursor: pointer;
+}
+
+.remember-me label {
+  margin: 0;
+  font-size: 13px;
+  font-weight: normal;
+  color: #666666;
+}
+
+/* Forgot Password */
+
+.form-options a {
+  font-size: 13px;
+}
+
+/* Login Button */
+
+.login-button {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5b5bd6;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #4949b8;
+}
+
+/* Register */
+
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #dddddd;
+}
+
+.register-link p {
+  color: #666666;
+
+  font-size: 13px;
+}
+
+.register-link a {
+  font-weight: bold;
+}
+
+/* Footer */
+
+.login-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-footer p {
+  color: #777777;
+  font-size: 12px;
+}
+
+}

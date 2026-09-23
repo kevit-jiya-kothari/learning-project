@@ -1,180 +1,86 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outreach Hub</title>
-</head>
-<body>
-     <div class="login-container">
-        <div class="login-class">
-            <h1>OutreachHub</h1>
-
-            <p>Login to your workspace</p>
-
-            <form action="home.html">
-                <label for="email" >Email</label>
-                <input type="email" id="email" placeholder="Enter your email: " required ><br>
-                <label for="password" >Password</label>
-                <input type:"password" id:"password" placeholder:"Enter your password: " required ><br>
-
-                <button type="submit">Submit</button>
-
-            </form>
-        </div>
-     </div>
-
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - OutreachHub</title>
-
+    <link rel="stylesheet" href="./scss/main.css">
 </head>
-
-
-<body>
+<body class="login-page-body">
 
     <!-- Login Page -->
+    <main class="login-page">
 
-    <main>
+        <div class="login-container">
+            <!-- Brand -->
+            <header class="brand">
+                <h1>OutreachHub</h1>
+                <p>Connect. Reach. Grow.</p>
+            </header>
 
-        <header>
+            <!-- Login Card -->
+            <section class="login-card">
 
-            <h1>OutreachHub</h1>
+                <!-- Login Header -->
+                <div class="login-header">
+                    <h2>Login to Your Workspace</h2>
+                    <p>Enter your account details to continue.</p>
+                </div>
 
-        </header>
+                <!-- Login Form -->
+                <form class="login-form" action="home.html" method="get">
 
+                    <!-- Email -->
+                    <p>
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </p>
 
-        <!-- Login Form -->
+                    <!-- Password -->
+                    <div class="password-label">
+                        <label for="password">Password:</label>
+                    </div>
 
-        <section>
+                    <p>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" minlength="6" required>
+                    </p>
 
-            <h2>Login to Your Workspace</h2>
-            <p>Enter your account details to continue.</p>
+                    <!-- Remember Me and Forgot Password -->
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Remember Me</label>
+                        </div>
 
+                        <a href="forgot-password.html">Forgot Password?</a>
+                    </div>
 
-            <form action="home.html" method="get">
+                    <!-- Login Button -->
+                    <button class="login-button" type="submit">Login</button>
 
+                </form>
 
-                <!-- Email -->
+                <!-- Register Link -->
+                <div class="register-link">
+                    <p>
+                        Don't have an account?
+                        <a href="register.html">Create an Account</a>
+                    </p>
+                </div>
 
-                <p>
+            </section>
 
-                    <label for="email">Email Address:  </label>
+            <!-- Footer -->
+            <footer class="login-footer">
 
-                    <br>
+                <p>© 2026 OutreachHub</p>
 
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </footer>
 
-                </p>
-
-
-                <!-- Password -->
-
-                <p>
-
-                    <label for="password">Password:</label>
-
-                    <br>
-
-                    <input type="password" id="password" name="password" placeholder="Enter your password" minlength="6" required>
-
-                </p>
-
-
-                <!-- Remember Me -->
-
-                <p>
-
-                    <input type="checkbox" id="remember" name="remember" >
-
-                    <label for="remember">Remember Me</label>
-
-                </p>
-
-
-                <!-- Show Password -->
-
-                <p>
-
-                    <input type="checkbox" id="show-password" name="show-password">
-
-                    <label for="show-password">Show Password</label>
-
-                </p>
-
-
-                <!-- Login Button -->
-
-                <p>
-
-                    <button type="submit">Login</button>
-
-                </p>
-
-
-                <!-- Forgot Password -->
-
-                <p>
-
-                    <a href="forgot-password.html">Forgot Password?</a>
-
-                </p>
-
-            </form>
-
-        </section>
-
-
-        <!-- <hr> -->
-
-
-        <!-- New User -->
-<!-- 
-        <section>
-
-            <p>
-                Don't have an account?
-            </p>
-
-            <a href="register.html">
-                Create an Account
-            </a>
-
-        </section>
-
-
-        <hr> -->
-
-
-        <!-- Footer -->
-
-        <footer>
-
-            <p>
-                © 2026 OutreachHub
-            </p>
-
-            <p>
-                Secure workspace access for your team.
-            </p>
-
-        </footer>  
+        </div>
 
     </main>
 
 </body>
-
 </html>

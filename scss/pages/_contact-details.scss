@@ -1,0 +1,179 @@
+@use "../abstracts/variables" as *;
+
+body.contact-details-page {
+
+/* Basic Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Body */
+
+& {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    background-color: #eef2ff;
+}
+
+
+/* Navigation */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #5b5bd6;
+    border-bottom: 2px solid #4a4ac1;
+}
+
+
+/* Logo */
+
+.logo h1 {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+
+/* Navigation Links */
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* Main Container */
+
+main {
+    width: 95%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px solid #dfe3f0;
+    border-radius: 8px;
+}
+
+
+/* Page Heading */
+
+main > h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+main > p {
+    color: #666666;
+    margin-bottom: 25px;
+}
+
+
+/* Information Fieldsets */
+
+fieldset {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #dfe3f0;
+    border-radius: 6px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+main > br {
+    display: none;
+}
+
+
+/* Legends */
+
+legend {
+    padding: 0 10px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* Information Paragraphs */
+
+fieldset p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* Strong Labels */
+
+fieldset strong {
+    display: inline-block;
+    min-width: 140px;
+    color: #333333;
+}
+
+
+/* Action Links */
+
+main > a {
+    display: inline-block;
+    padding: 10px 18px;
+    margin-right: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+/* Edit Contact */
+
+main > a:first-of-type {
+    background-color: #5b5bd6;
+    color: #ffffff;
+}
+
+main > a:first-of-type:hover {
+    background-color: #4949b8;
+}
+
+
+/* Back to Contacts */
+
+main > a:last-of-type {
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    color: #555555;
+}
+
+main > a:last-of-type:hover {
+    background-color: #f4f5ff;
+    color: #5b5bd6;
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777777;
+    font-size: 13px;
+}
+
+}

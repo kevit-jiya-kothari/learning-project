@@ -1,0 +1,21 @@
+@use "../abstracts/variables" as *;
+
+body {
+    font-family: $font-family;
+    color: $text-color;
+    background-color: $background-color;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+button,
+input {
+    font-family: inherit;
+}
