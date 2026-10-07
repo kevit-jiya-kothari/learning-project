@@ -183,7 +183,7 @@ body.login-page-body .login-form label {
 body.login-page-body {
   /* Email and Password Inputs */
 }
-body.login-page-body .login-form input[type=email],
+body.login-page-body .login-form input[type=text],
 body.login-page-body .login-form input[type=password] {
   width: 100%;
   padding: 10px;

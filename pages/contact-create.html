@@ -1,25 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Edit Contact - OutreachHub</title>
-    <link rel="stylesheet" href="./scss/main.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Contact - OutreachHub</title>
+    <link rel="stylesheet" href="../scss/main.css">
 </head>
-
-
-<body class="contact-edit-page">
+<body class="contact-create-page">
 
     <!-- Navigation -->
-
     <nav>
         <div class="logo">
             <h1>OutreachHub</h1>
@@ -30,95 +19,69 @@
             <a href="contacts.html">Contacts</a>
             <a href="#">Templates</a>
             <a href="#">Campaigns</a>
-            <a href="index.html">Logout</a>
+            <a href="../index.html">Logout</a>
         </div>
     </nav>
 
     <main>
 
-        <h1>Edit Contact</h1>
+        <h1>Add New Contact</h1>
+        <p>Enter the details of the new contact.</p>
 
-        <p>
-            Update the contact information below.
-        </p>
-
-
-        <form action="contact-details.html" method="get">
-
+        <form id="contactForm">
 
             <!-- Personal Information -->
-
             <fieldset>
 
-                <legend>
-                    Personal Information
-                </legend>
-
+                <legend>Personal Information</legend>
 
                 <p>
 
-                    <label for="name">
-                        Full Name:
-                    </label>
-
+                    <label for="name">Full Name:</label>
                     <br>
-
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value="Rahul Patel"
-                        required
-                    >
+                    <input type="text" id="name" name="name" placeholder="Enter full name" required>
 
                 </p>
-
+                <br>
 
                 <p>
 
                     <label for="phone">
                         Phone Number:
                     </label>
-
                     <br>
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value="9876543210"
-                        required
-                    >
+                    <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
 
                 </p>
-
+                <br>
 
                 <p>
 
                     <label for="email">
                         Email Address:
                     </label>
+                    <br>
+                    <input type="email" id="email" name="email" placeholder="Enter email address">
 
+                </p>
+                <br>
+
+                <p>
+
+                    <label for="tags">
+                        Tags:
+                    </label>
                     <br>
 
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value="rahul@example.com"
-                    >
-
+                    <input type="text" id="tags" name="tags" placeholder="Customer, Premium, VIP">
                 </p>
 
             </fieldset>
 
 
-            <br>
-
-
             <!-- Company Information -->
 
-            <fieldset>
+            <!-- <fieldset>
 
                 <legend>
                     Company Information
@@ -137,11 +100,11 @@
                         type="text"
                         id="company"
                         name="company"
-                        value="ABC Technologies"
+                        placeholder="Enter company name"
                     >
 
                 </p>
-
+                <br>
 
                 <p>
 
@@ -155,7 +118,7 @@
                         type="text"
                         id="designation"
                         name="designation"
-                        value="Software Engineer"
+                        placeholder="Enter designation"
                     >
 
                 </p>
@@ -163,35 +126,24 @@
             </fieldset>
 
 
-            <br>
+            <br> -->
 
 
-            <!-- Classification -->
+            <!-- Contact Classification -->
 
-            <fieldset>
+            <!-- <fieldset>
 
                 <legend>
                     Contact Classification
                 </legend>
 
 
+                <br>
+
                 <p>
-
-                    <label for="tags">
-                        Tags:
-                    </label>
-
-                    <br>
-
-                    <input
-                        type="text"
-                        id="tags"
-                        name="tags"
-                        value="Customer, Premium"
-                    >
-
+                    You can enter multiple tags separated by commas.
                 </p>
-
+                <br>
 
                 <p>
 
@@ -206,7 +158,7 @@
                         name="status"
                     >
 
-                        <option value="active" selected>
+                        <option value="active">
                             Active
                         </option>
 
@@ -221,12 +173,12 @@
             </fieldset>
 
 
-            <br>
+            <br> -->
 
 
-            <!-- Notes -->
+            <!-- Additional Information -->
 
-            <fieldset>
+            <!-- <fieldset>
 
                 <legend>
                     Additional Information
@@ -238,7 +190,7 @@
                     <label for="notes">
                         Notes:
                     </label>
-
+                    <br>
                     <br>
 
                     <textarea
@@ -246,20 +198,21 @@
                         name="notes"
                         rows="6"
                         cols="50"
-                    >Premium customer. Contact regarding upcoming campaigns.</textarea>
+                        placeholder="Enter additional notes"
+                    ></textarea>
 
                 </p>
 
             </fieldset>
 
 
-            <br>
+            <br> -->
 
 
             <!-- Buttons -->
 
             <button type="submit">
-                Update Contact
+                Save Contact
             </button>
 
             <a href="contacts.html">
@@ -272,12 +225,10 @@
 
     <footer>
 
-        <p>
-            © 2026 OutreachHub
-        </p>
+        <p>© 2026 OutreachHub</p>
 
     </footer>  
+    <script src="../js/contact-create.js"></script>
 
 </body>
-
 </html>

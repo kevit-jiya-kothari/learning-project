@@ -11,7 +11,7 @@
     >
 
     <title>Delete Contact - OutreachHub</title>
-    <link rel="stylesheet" href="./scss/main.css">
+    <link rel="stylesheet" href="../scss/main.css">
 
 </head>
 
@@ -30,7 +30,7 @@
             <a href="contacts.html">Contacts</a>
             <a href="#">Templates</a>
             <a href="#">Campaigns</a>
-            <a href="index.html">Logout</a>
+            <a href="../index.html">Logout</a>
         </div>
     </nav>
 
@@ -59,38 +59,38 @@
 
             <p>
                 <strong>Name:</strong>
-                Rahul Patel
+                <span id="contactName"></span>
             </p>
 
 
             <p>
                 <strong>Phone:</strong>
-                9876543210
+                <span id="contactPhone"></span>
             </p>
 
 
             <p>
                 <strong>Email:</strong>
-                rahul@example.com
+                <span id="contactEmail"></span>
             </p>
 
 
-            <p>
+            <!-- <p>
                 <strong>Company:</strong>
                 ABC Technologies
-            </p>
+            </p> -->
 
 
             <p>
                 <strong>Tags:</strong>
-                Customer, Premium
+                <span id="contactTags"></span>
             </p>
 
 
-            <p>
+            <!-- <p>
                 <strong>Status:</strong>
                 Active
-            </p>
+            </p> -->
 
 
             <hr>
@@ -107,28 +107,27 @@
 
 
             <!-- Delete Action -->
-
+<!-- 
             <a href="contacts.html">
+                Yes, Delete Contact
+            </a> -->
+
+    
+            <a href="#" id="deleteContact">
                 Yes, Delete Contact
             </a>
 
-
-            &nbsp;&nbsp;&nbsp;
-
-
-            <!-- Cancel Action -->
+             &nbsp;&nbsp;&nbsp;
 
             <a href="contacts.html">
-                Cancel
+                 Cancel
             </a>
 
         </fieldset>
 
     </main>
 
-
     <hr>
-
 
     <footer>
 
@@ -138,6 +137,8 @@
 
     </footer>
 
-</body>
+    <script src="../js/auth.js"></script>
+    <script src="../js/contact-delete.js"></script>
 
+</body>
 </html>

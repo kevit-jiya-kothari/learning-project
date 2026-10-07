@@ -11,7 +11,7 @@
     >
 
     <title>Contact Details - OutreachHub</title>
-    <link rel="stylesheet" href="./scss/main.css">
+    <link rel="stylesheet" href="../scss/main.css">
 
 </head>
 
@@ -30,7 +30,7 @@
             <a href="contacts.html">Contacts</a>
             <a href="#">Templates</a>
             <a href="#">Campaigns</a>
-            <a href="index.html">Logout</a>
+            <a href="../index.html">Logout</a>
         </div>
     </nav>
 
@@ -55,30 +55,36 @@
 
             <p>
                 <strong>Full Name:</strong>
-                Rahul Patel
+                <span id="contactName"></span>
             </p>
 
 
             <p>
                 <strong>Phone Number:</strong>
-                9876543210
+                <span id="contactPhone"></span>
             </p>
 
 
             <p>
                 <strong>Email:</strong>
-                rahul@example.com
+                <span id="contactEmail"></span>
+            </p>
+
+
+            <p>
+                <strong>Tags:</strong>
+                <span id="contactTags"></span>
             </p>
 
         </fieldset>
 
 
-        <br>
+        
 
 
         <!-- Company Information -->
 
-        <fieldset>
+        <!-- <fieldset>
 
             <legend>
                 Company Information
@@ -87,45 +93,42 @@
 
             <p>
                 <strong>Company:</strong>
-                ABC Technologies
+                <span id="contactCompany"></span>
             </p>
 
 
             <p>
                 <strong>Designation:</strong>
-                Software Engineer
+                <span id="contactDesignation"></span>
             </p>
 
         </fieldset>
 
 
-        <br>
+        <br> -->
 
 
         <!-- Contact Classification -->
 
-        <fieldset>
+        <!-- <fieldset>
 
             <legend>
                 Contact Classification
             </legend>
 
 
-            <p>
-                <strong>Tags:</strong>
-                Customer, Premium
-            </p>
+            
 
 
             <p>
                 <strong>Status:</strong>
-                Active
+                <span id="contactStatus"></span>
             </p>
 
         </fieldset>
 
 
-        <br>
+        <br> -->
 
 
         <!-- Additional Information -->
@@ -137,24 +140,21 @@
             </legend>
 
 
-            <p>
+            <!-- <p>
                 <strong>Notes:</strong>
             </p>
 
-            <p>
-                Premium customer. Contact regarding upcoming campaigns.
-            </p>
-
+            <p id="contactNotes"></p> -->
 
             <p>
                 <strong>Created On:</strong>
-                20 September 2026
+                <span id="contactCreated"></span>
             </p>
 
 
             <p>
                 <strong>Last Updated:</strong>
-                21 September 2026
+                <span id="contactUpdated"></span>
             </p>
 
         </fieldset>
@@ -165,7 +165,7 @@
 
         <!-- Actions -->
 
-        <a href="contact-edit.html">
+        <a id="editContactLink" href="#">
             Edit Contact
         </a>
 
@@ -183,6 +183,9 @@
         </p>
 
     </footer>  
+    
+    <script src="../js/auth.js"></script>
+    <script src="../js/contact-details.js"></script>
 
 </body>
 

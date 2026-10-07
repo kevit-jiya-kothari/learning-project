@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts - OutreachHub</title>
-    <link rel="stylesheet" href="./scss/main.css">
+    <link rel="stylesheet" href="../scss/main.css">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
             <a href="contacts.html">Contacts</a>
             <a href="#">Templates</a>
             <a href="#">Campaigns</a>
-            <a href="index.html">Logout</a>
+            <a href="../index.html">Logout</a>
         </div>
 
     </nav>
@@ -30,7 +30,7 @@
         <h1>Contacts</h1>
         <p>Manage all contacts in your workspace.</p>
         <p>
-            <a href="contact-create.html">➕ Add New Contact</a>
+            <a href="contact-create.html" id="createContactLink">➕ Add New Contact</a>
         </p>
         <!-- Search and Filter -->
         <section>
@@ -63,7 +63,7 @@
                     </p>
                     <br>
 
-                    <p>
+                    <!-- <p>
                         <label for="status">Filter by Status:</label>
                         <br>
                         <select id="status" name="status">
@@ -73,8 +73,8 @@
                             <option value="inactive">Inactive</option>
 
                         </select>
-                    </p>
-                    <br>
+                    </p> -->
+                
 
                     <p>
                         <label for="sort">Sort By:</label>
@@ -102,7 +102,7 @@
         <section>
 
             <h2>Contact List</h2>
-            <p>Total Contacts: 5</p>
+            <p>Total Contacts: <span id="totalContacts">Loading...</span></p>
 
             <table border="1" cellpadding="10" cellspacing="0">
 
@@ -114,18 +114,18 @@
                         <th>Name</th>
                         <th>Phone</th>
                         <th>Email</th>
-                        <th>Company</th>
+                        <!-- <th>Company</th> -->
                         <th>Tags</th>
-                        <th>Status</th>
+                        <!-- <th>Status</th> -->
                         <th>Actions</th>
 
                     </tr>
 
                 </thead>
 
-                <tbody>
-
-                    <tr>
+                <tbody id="contactsTableBody">
+                    <tr><td colspan="8">Loading contacts...</td></tr>
+                    <!-- <tr>
 
                         <td>1</td>
                         <td>Rahul Patel</td>
@@ -245,36 +245,29 @@
 
                         </td>
 
-                    </tr>
+                    </tr> -->
 
                 </tbody>
 
             </table>
 
         </section>
+
         <!-- Pagination -->
 
         <section>
 
-            <!-- <h3>Pagination</h3> -->
+        <!-- <h3>Pagination</h3> -->
 
-            <a href="#">Previous</a>
-
-            &nbsp;
-
-            <a href="#">1</a>
+            <a href="#" id="previousButton">Previous</a>
 
             &nbsp;
 
-            <a href="#">2</a>
+            <span id="pageNumber">Page 1</span>
 
             &nbsp;
 
-            <a href="#">3</a>
-
-            &nbsp;
-
-            <a href="#">Next</a>
+            <a href="#" id="nextButton">Next</a>
 
         </section>
 
@@ -285,6 +278,8 @@
         <p>© 2026 OutreachHub</p>
 
     </footer> 
+    <script src="../js/contacts.js"></script>
+    
 
 </body>
 </html>
