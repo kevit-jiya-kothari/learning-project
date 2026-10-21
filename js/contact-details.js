@@ -1,74 +1,71 @@
-const API_URL = "https://jsonplaceholder.typicode.com/users";
-
+const API_URL = "http://localhost:3000/api/contacts";
 const urlParams = new URLSearchParams(window.location.search);
 const contactId = urlParams.get("id");
-
 const userRole = localStorage.getItem("userRole");
 
 if (userRole === "Viewer") {
-
     document.querySelector("#editContactLink").style.display = "none";
 }
 
-function getContact() {
-
-    const storedContacts = localStorage.getItem("contacts");
-
-    if (storedContacts) {
-
-        const contacts = JSON.parse(storedContacts);
-        for (let i = 0; i < contacts.length; i++) {
-
-            if (contacts[i].id == contactId) {
-                displayContact(contacts[i]);
-                return;
-            }
-        }
-    }
-
-    getContactFromAPI();
-}
-
-async function getContactFromAPI() {
+async function getContact() {
     try {
-        const response = await fetch(API_URL + "/" + contactId);
-        if (!response.ok) {
-            throw new Error("Contact not found");
+        if (!contactId) {
+            throw new Error("Contact ID is missing from the URL.");
         }
 
-        const contact = await response.json();
+        const response = await fetch(
+            API_URL + "/" + encodeURIComponent(contactId),
+            {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("accessToken")}`
+                }
+            }
+        );
+        
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Contact not found.");
+        }
+
+        const contact = data.contact;
+
+        if (!contact) {
+            throw new Error("Contact details were not returned by the server.");
+        }
         displayContact(contact);
-    }
+
+    } 
     catch (error) {
-        console.error("Error:", error);
+        console.error("Error fetching contact:", error);
+        alert(error.message || "Unable to load contact details.");
     }
 }
 
 function displayContact(contact) {
 
-    document.querySelector("#contactName").textContent = contact.name;
-    document.querySelector("#contactPhone").textContent = contact.phone;
-    document.querySelector("#contactEmail").textContent = contact.email;
-    
-    // if(contact.company){
-    //     document.querySelector("#contactCompany").textContent = contact.company.name;
-    // }
-    // else{
-    //     document.querySelector("#contactCompany").textContent = "Not Provided";
-    // }
+    document.querySelector("#contactName").textContent = contact.name || "Not Provided";
+    document.querySelector("#contactPhone").textContent = contact.phone || "Not Provided";
+    document.querySelector("#contactEmail").textContent = contact.email || "Not Provided";
 
-    // if(contact.company){
-    //     document.querySelector("#contactDesignation").textContent = contact.company.catchPhrase;
-    // }
-    // else{
-    //     document.querySelector("#contactDesignation").textContent = "Not Provided";
-    // }
+    document.querySelector("#contactTags").textContent =
+        Array.isArray(contact.tags) && contact.tags.length > 0
+            ? contact.tags.join(", ")
+            : "Not Provided";
 
-    document.querySelector("#contactTags").textContent = contact.tags || "Not Provided";
-    document.querySelector("#contactCreated").textContent = "Not Provided";
-    document.querySelector("#contactUpdated").textContent = "Not Provided";
-    document.querySelector("#editContactLink").href = "contact-edit.html?id=" + contactId;
+    document.querySelector("#contactCreated").textContent =
+    contact.createdAt
+        ? new Date(contact.createdAt).toLocaleString()
+        : "Not Provided";
 
+    document.querySelector("#contactUpdated").textContent =
+        contact.updatedAt
+            ? new Date(contact.updatedAt).toLocaleString()
+            : "Not Provided";
+
+    document.querySelector("#editContactLink").href =
+        "contact-edit.html?id=" + encodeURIComponent(contact._id);
 }
 
 getContact();

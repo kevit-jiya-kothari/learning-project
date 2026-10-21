@@ -1,53 +1,76 @@
-const API_URL = "https://jsonplaceholder.typicode.com/users";
-
+const API_URL = "http://localhost:3000/api/contacts";
 const urlParams = new URLSearchParams(window.location.search);
 const contactId = urlParams.get("id");
-
 const userRole = localStorage.getItem("userRole");
 
 if (userRole !== "Editor") {
-
-    alert("You do not have permission to create contacts.");
+    alert("You do not have permission to edit contacts.");
     window.location.href = "contacts.html";
-
-}
-
-function getContact() {
-
-    const storedContacts = localStorage.getItem("contacts");
-
-    if (!storedContacts) {
-        alert("Contacts not found");
-        return;
-    }
-    const contacts = JSON.parse(storedContacts);
-
-    for (let i = 0; i < contacts.length; i++) {
-
-        if (contacts[i].id == contactId) {
-
-            document.querySelector("#name").value = contacts[i].name;
-            document.querySelector("#phone").value =  contacts[i].phone;
-            document.querySelector("#email").value = contacts[i].email;
-            document.querySelector("#tags").value = contacts[i].tags || "Not provided";
-
-            return;
-        }
-    }
-
-    alert("Contact not found");
+} 
+else {
+    getContact();
 }
 
 const contactForm = document.querySelector("#contactForm");
 
-contactForm.addEventListener("submit", function(event) {
+async function getContact() {
+    try {
+        if (!contactId) {
+            throw new Error("Contact ID is missing from the URL.");
+        }
 
+        const response = await fetch(
+            API_URL + "/" + encodeURIComponent(contactId),
+            {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("accessToken")}`
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Failed to fetch contact.");
+        }
+
+        const contact = data.contact;
+
+        if (!contact) {
+            throw new Error("Contact not found.");
+        }
+
+        document.querySelector("#name").value = contact.name || "";
+        document.querySelector("#phone").value = contact.phone || "";
+        document.querySelector("#email").value = contact.email || "";
+
+        document.querySelector("#tags").value =
+            Array.isArray(contact.tags) ? contact.tags.join(", ") : "";
+
+    } catch (error) {
+        console.error("Error fetching contact:", error);
+        alert(error.message || "Unable to load contact.");
+        window.location.href = "contacts.html";
+    }
+}
+
+contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    
-    const name = document.querySelector("#name").value;
-    const phone = document.querySelector("#phone").value;
-    const email = document.querySelector("#email").value;
-    const tags = document.querySelector("#tags").value;
+
+    const name = document.querySelector("#name").value.trim();
+    const phone = document.querySelector("#phone").value.trim();
+    const email = document.querySelector("#email").value.trim();
+    const tagsInput = document.querySelector("#tags").value;
+
+    const tags = tagsInput
+        .split(",")
+        .map(function (tag) {
+            return tag.trim();
+        })
+        .filter(function (tag) {
+            return tag !== "";
+        });
 
     const updatedContact = {
         name: name,
@@ -60,58 +83,31 @@ contactForm.addEventListener("submit", function(event) {
 });
 
 async function updateContact(updatedContact) {
-
-    const storedContacts = localStorage.getItem("contacts");
-
-        if (storedContacts) {
-
-            const contacts = JSON.parse(storedContacts);
-
-            for (let i = 0; i < contacts.length; i++) {
-
-                if (contacts[i].id == contactId) {
-
-                    contacts[i].name = updatedContact.name;
-                    contacts[i].phone = updatedContact.phone;
-                    contacts[i].email = updatedContact.email;
-                    contacts[i].tags = updatedContact.tags;
-                    break;
-                }
-
-            }
-
-            localStorage.setItem(
-                "contacts",
-                JSON.stringify(contacts)
-            );
-        }
-        try {
-            const response = await fetch(API_URL + "/" + contactId, {
+    try {
+        const response = await fetch(
+            API_URL + "/" + encodeURIComponent(contactId),
+            {
                 method: "PUT",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("accessToken")}`
                 },
                 body: JSON.stringify(updatedContact)
-            });
-
-            if(response.ok) {
-                const updatedContactFromAPI = await response.json();
-                console.log("Contact updated:", updatedContactFromAPI);
-                
             }
-            else {
-                console.log("API update failed, but localStorage was updated.");
-            }
+        );
 
-        }
-        catch (error) {
-            console.error("Error:", error);
-            alert("Unable to update contact");
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Failed to update contact.");
         }
 
-        alert("Contact updated successfully");
+        alert("Contact updated successfully!");
+        window.location.href = "contact-details.html?id=" + encodeURIComponent(contactId);
 
-        window.location.href =  "contact-details.html?id=" + contactId;;
+    } 
+    catch (error) {
+        console.error("Error updating contact:", error);
+        alert(error.message || "Unable to update contact.");
+    }
 }
-
-getContact();

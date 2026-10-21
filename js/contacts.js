@@ -1,5 +1,4 @@
-const API_URL = "https://jsonplaceholder.typicode.com/users";
-
+const API_URL =  "http://localhost:3000/api/contacts";
 const userRole = localStorage.getItem("userRole");
 
 if (userRole === "Viewer") {
@@ -14,41 +13,36 @@ let allContacts = [];
 
 async function getContacts() {
 
-    const storedContacts = localStorage.getItem("contacts");
-
-    if (storedContacts) {
-
-        const contacts = JSON.parse(storedContacts);
-
-        if(contacts.length >0) {
-            allContacts = contacts;
-            sortContacts();
-            displayContacts();
-            return;
-        }
-    }
-
     try {
-        const response = await fetch(API_URL);
+        const response = await fetch(API_URL, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`
+            }
+        });
+
         if (!response.ok) {
-            throw new Error("Request Failed");
+            throw new Error("Failed to fetch contacts.");
         }
 
-        const contacts = await response.json();
+        const data = await response.json();
 
-        localStorage.setItem(
-            "contacts",
-            JSON.stringify(contacts)
-        );
+        if (!Array.isArray(data.contact)) {
+            throw new Error("Expected an array in data.contacts. Check the backend response.");
+        }
 
-        allContacts = contacts;
+        allContacts = data.contact;
+
         sortContacts();
-        displayContacts(contacts);
-    }
+        displayContacts();
+    } 
     catch (error) {
-        console.error("Error:", error);
+        console.error("Error fetching contacts:", error);
+
         const tableBody = document.querySelector("#contactsTableBody");
-        tableBody.innerHTML = '<tr><td colspan="8">Unable to load contacts.</td></tr>';
+
+        tableBody.innerHTML =
+            '<tr><td colspan="8">Unable to load contacts.</td></tr>';
     }
 }
 
@@ -114,7 +108,7 @@ function displayContacts() {
         const actionsCell = document.createElement("td");    
 
         const viewLink = document.createElement("a");
-        viewLink.href = "contact-details.html?id=" + contact.id;
+        viewLink.href =  "contact-details.html?id=" + encodeURIComponent(contact._id);
         viewLink.textContent = "View";
 
         actionsCell.appendChild(viewLink);
@@ -124,14 +118,14 @@ function displayContacts() {
             actionsCell.append(' | ');
 
             const editLink = document.createElement("a");
-            editLink.href = "contact-edit.html?id=" + contact.id;
+            editLink.href = "contact-edit.html?id=" + encodeURIComponent(contact._id);
             editLink.textContent = "Edit";
 
             actionsCell.appendChild(editLink);
             actionsCell.append(' | ');
 
             const deleteLink = document.createElement("a");
-            deleteLink.href = "contact-delete.html?id=" + contact.id;
+            deleteLink.href = "contact-delete.html?id=" + encodeURIComponent(contact._id);
             deleteLink.textContent = "Delete";
 
             actionsCell.appendChild(deleteLink);
@@ -146,8 +140,9 @@ function displayContacts() {
 function updatePagination() {
 
     const totalPages = Math.ceil(allContacts.length / contactsPerPage);
-    document.querySelector("#pageNumber").textContent = "Page " + currentPage + " of " + totalPages;
-
+    document.querySelector("#pageNumber").textContent = totalPages === 0 ? "Page 0 of 0" : `Page ${currentPage} of ${totalPages}`;
+    document.querySelector("#previousButton").disabled = currentPage <= 1;
+    document.querySelector("#nextButton").disabled = totalPages === 0 || currentPage >= totalPages;
 }
 
 document.querySelector("#previousButton").addEventListener( "click", function(event) {
@@ -162,7 +157,6 @@ document.querySelector("#previousButton").addEventListener( "click", function(ev
         }
     }
 );
-
 
 document.querySelector("#nextButton").addEventListener("click", function(event) {
 

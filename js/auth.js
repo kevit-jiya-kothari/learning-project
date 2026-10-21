@@ -1,25 +1,19 @@
-const AUTH_API_URL ="https://dummyjson.com/auth/login";
-
-
+const AUTH_API_URL = "http://localhost:3000/api/auth/login";
 const loginForm = document.querySelector("#loginForm");
 
 if (loginForm) {
-
-    loginForm.addEventListener("submit", function(event){
-
+    loginForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        
-        const username = document.querySelector("#username").value;
+
+        const username = document.querySelector("#username").value.trim();
         const password = document.querySelector("#password").value;
-        
+
         login(username, password);
     });
 }
 
 async function login(username, password) {
-
     try {
-
         const response = await fetch(AUTH_API_URL, {
             method: "POST",
             headers: {
@@ -31,97 +25,53 @@ async function login(username, password) {
             })
         });
 
-        
-        if (!response.ok) {
-            // throw new Error("Invalid username or password");
-            data.message || "Login failed";
-        }
-
         const data = await response.json();
-        localStorage.setItem("accessToken", data.accessToken);
-        localStorage.setItem("refreshToken", data.refreshToken);
-      
-        if (username === "emilys") {
 
-            localStorage.setItem("userRole","Editor");
-
+        // Handle invalid credentials or other errors
+        if (!response.ok) {
+            throw new Error(data.message || "Login failed.");
         }
-        else {
 
-            localStorage.setItem("userRole","Viewer");
-        }
-    
-        alert("Login successful");
+        // Store user details after successful login
+        localStorage.setItem("accessToken", data.token);
+        localStorage.setItem("username", data.user.username);
+        localStorage.setItem("userRole", data.user.role);
+
+        alert("Login successful!");
+
+        // Redirect to the existing home page
         window.location.href = "pages/home.html";
-    }
+
+    } 
     catch (error) {
-        console.error("Login Error:", error);
-        alert("Invalid username or password");
+        console.error("Login error:", error);
+        alert(error.message || "Unable to connect to the server.");
     }
 }
 
+// Handle logout
 document.addEventListener("DOMContentLoaded", function () {
-
-    const logoutLink =
-        document.querySelector("#logoutLink");
+    const logoutLink = document.querySelector("#logoutLink");
 
     if (logoutLink) {
-
         logoutLink.addEventListener("click", function (event) {
-
             event.preventDefault();
 
-            const confirmLogout =
-                confirm("Are you sure you want to logout?");
+            const confirmLogout = confirm("Are you sure you want to logout?");
 
             if (!confirmLogout) {
                 return;
             }
 
-            // Remove JWT tokens
+            // Remove locally stored user details
             localStorage.removeItem("accessToken");
-            localStorage.removeItem("refreshToken");
+            localStorage.removeItem("username");
             localStorage.removeItem("userRole");
 
-            alert("Logged out successfully");
+            alert("Logged out successfully!");
 
-            // Go back to login page
+            // Return to login page
             window.location.href = "../index.html";
-
         });
-
     }
-
 });
-
-// const logoutLink = document.querySelector("#logoutLink");
-
-// if (logoutLink) {
-
-//     logoutLink.addEventListener("click", function(event){
-
-//         event.preventDefault();
-        
-//         localStorage.removeItem("accessToken");
-//         localStorage.removeItem("refreshToken");
-        
-//         window.location.href = "../index.html";
-//     });
-// }
-
-// const accessToken = localStorage.getItem("accessToken");
-// const currentPage = window.location.pathname;
-
-// if(!currentPage.endsWith("index.html") && !currentPage.endsWith("/")){
-
-//     if(!accessToken){
-
-//         console.log("No access token. Redirecting to login.");
-//         window.location.href = "../index.html";
-//     }
-//     else {
-
-//         console.log("Access token found. Page allowed.");
-
-//     }
-// }
