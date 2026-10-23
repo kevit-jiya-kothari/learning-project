@@ -36,7 +36,7 @@
         <section>
 
             <h2>Search & Filter Contacts</h2>
-            <form action="contacts.html">
+            <form id = "searchForm">
                 <fieldset>
                     <legend>Search Contacts</legend>
                     <p>
@@ -54,10 +54,10 @@
                         <select id="tag" name="tag">
 
                             <option value="">All Tags</option>
-                            <option value="customer">Customer</option>
-                            <option value="lead">Lead</option>
-                            <option value="premium">Premium</option>
-                            <option value="vip">VIP</option>
+                            <option value="Customer">Customer</option>
+                            <option value="Lead">Lead</option>
+                            <option value="Premium">Premium</option>
+                            <option value="VIP">VIP</option>
 
                         </select>
                     </p>
@@ -78,7 +78,7 @@
                     <br>
 
                     <button type="submit">Search</button>
-                    <button type="reset">Clear Filters</button>
+                    <button type="button" id="clearButton">Clear Filters</button>
 
                 </fieldset>
 

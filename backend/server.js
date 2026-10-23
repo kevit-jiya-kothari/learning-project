@@ -13,10 +13,7 @@ app.use(express.json());
 const jwt = require("jsonwebtoken");
 const authMiddleware = require("./middleware/authMiddleware");
 const roleMiddleware = require("./middleware/roleMiddleware");
-// let contacts = [
-//     { id: 1, name: "Aarav Shah", email: "aarav@example.com" , phone: "9876543210"},
-//     { id: 2, name: "Diya Patel", email: "diya@example.com" , phone: "9876543211"}
-// ];
+
 
 function validateContact(name,email,phone,tags = []){
     if(
@@ -248,17 +245,62 @@ app.delete("/api/contacts/:id", authMiddleware, roleMiddleware("Editor"), async 
 });
 
 app.get("/api/contacts", authMiddleware, async (req,res) => {
-    
-    try {
-        const contacts = await Contact.find();
+
+    try{
+
+        const { search, tag, sortBy, order } = req.query;
+
+        // Build the MongoDB filter
+        const filter = {};
+
+        // 1. Search by name, email, or phone
+        if (search && search.trim() !== "") {
+            const escapedSearch = search.trim().replace(
+                /[.*+?^${}()|[\]\\]/g,
+                "\\$&"
+            );
+
+            const searchRegex = new RegExp(escapedSearch, "i");
+
+            filter.$or = [
+                { name: searchRegex },
+                { email: searchRegex },
+                { phone: searchRegex }
+            ];
+        }
+
+        // 2. Filter by tag
+        if (tag && tag !== "all") {
+            filter.tags = tag;
+        }
+
+        // 3. Sort contacts
+        const allowedFields = ["name", "createdAt", "phone"];
+
+        const field = allowedFields.includes(sortBy)
+            ? sortBy
+            : "name";
+
+        const direction = order === "desc" ? -1 : 1;
+
+        const contacts = await Contact.find(filter)
+            .sort({ [field]: direction });
+
+        if (contacts.length === 0) {
+            return res.status(200).json({
+                message: "No contacts found matching your search criteria.",
+                contact: []
+            });
+        }
 
         res.status(200).json({
-            message: "Contact retrieved successfully",
+            message: "Contacts retrieved successfully",
             contact: contacts
         });
-    }
-    catch(error) {
-        console.error("Error retrieving contacts:",error.message);
+
+    } 
+    catch (error) {
+        console.error("Error retrieving contacts:", error.message);
 
         res.status(500).json({
             message: "Failed to retrieve contacts."

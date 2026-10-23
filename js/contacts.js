@@ -14,45 +14,69 @@ let allContacts = [];
 async function getContacts() {
 
     try {
-        const response = await fetch(API_URL, {
+        const search = document.querySelector("#search").value.trim();
+        const tag = document.querySelector("#tag").value;
+        const sort = document.querySelector("#sort").value;
+
+        // Convert frontend sorting options into backend parameters
+        let sortBy = "name";
+        let order = "asc";
+
+        if (sort === "recent") {
+            sortBy = "createdAt";
+            order = "desc";
+        } 
+        else if (sort === "phone") {
+            sortBy = "phone";
+            order = "asc";
+        }
+
+        // Prepare query parameters
+        const params = new URLSearchParams();
+
+        if (search) {
+            params.set("search", search);
+        }
+
+        if (tag) {
+            params.set("tag", tag);
+        }
+
+        params.set("sortBy", sortBy);
+        params.set("order", order);
+
+        const response = await fetch(`${API_URL}?${params.toString()}`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("accessToken")}`
             }
         });
 
-        if (!response.ok) {
-            throw new Error("Failed to fetch contacts.");
-        }
-
         const data = await response.json();
 
+        if (!response.ok) {
+            throw new Error(data.message || "Failed to fetch contacts.");
+        }
+
         if (!Array.isArray(data.contact)) {
-            throw new Error("Expected an array in data.contacts. Check the backend response.");
+            throw new Error("Invalid contacts response from server.");
         }
 
         allContacts = data.contact;
+        currentPage = 1;
 
-        sortContacts();
         displayContacts();
+
     } 
     catch (error) {
         console.error("Error fetching contacts:", error);
 
-        const tableBody = document.querySelector("#contactsTableBody");
+        document.querySelector("#contactsTableBody").innerHTML =
+            '<tr><td colspan="6">Unable to load contacts.</td></tr>';
 
-        tableBody.innerHTML =
-            '<tr><td colspan="8">Unable to load contacts.</td></tr>';
+        document.querySelector("#totalContacts").textContent = "0";
+        document.querySelector("#pageNumber").textContent = "Page 0 of 0";
     }
-}
-
-function sortContacts() {
-
-    allContacts.sort(function(a, b) {
-
-        return a.name.localeCompare(b.name);
-
-    });
 
 }
 
@@ -61,10 +85,17 @@ function displayContacts() {
     tableBody.innerHTML = "";
     document.querySelector("#totalContacts").textContent = allContacts.length;
 
-
     const startIndex = (currentPage - 1) * contactsPerPage;
     const endIndex =startIndex + contactsPerPage;
     const contactsToDisplay = allContacts.slice(startIndex, endIndex);
+
+    if (allContacts.length === 0) {
+        tableBody.innerHTML =
+            '<tr><td colspan="6">No contacts found.</td></tr>';
+
+        updatePagination();
+        return;
+    }
 
     for(let i=0; i < contactsToDisplay.length; i++) {
         const contact = contactsToDisplay[i];
@@ -85,25 +116,12 @@ function displayContacts() {
         const emailCell = document.createElement("td");
         emailCell.textContent = contact.email;
         row.appendChild(emailCell);
-
-        // const companyCell = document.createElement("td");
-        // if(contact.company)
-        // {
-        //     companyCell.textContent = contact.company.name;     
-        // }         
-        // else
-        // {
-        //     companyCell.textContent = "Not provided";     
-        // }         
-        // row.appendChild(companyCell);        
-        
+    
         const tagsCell = document.createElement("td");
-        tagsCell.textContent = contact.tags || "Not provided";
+        tagsCell.textContent = Array.isArray(contact.tags) && contact.tags.length > 0
+            ? contact.tags.join(", ")
+            : "Not provided";
         row.appendChild(tagsCell);
-
-        // const statusCell = document.createElement("td");
-        // statusCell.textContent = "Not provided";
-        // row.appendChild(statusCell);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 
         const actionsCell = document.createElement("td");    
 
@@ -172,6 +190,18 @@ document.querySelector("#nextButton").addEventListener("click", function(event) 
         }
     }
 );
+
+// Search and filter contacts
+document.querySelector("#searchForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    getContacts();
+});
+
+// Clear all filters
+document.querySelector("#clearButton").addEventListener("click", function() {
+    document.querySelector("#searchForm").reset();
+    getContacts();
+});
 
 getContacts();
 
